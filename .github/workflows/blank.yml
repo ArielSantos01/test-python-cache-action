@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Use python-cache-action
-        uses: Drafteame/python-cache-action@main 
+        uses: Drafteame/setup-ci-langs/@chore/poc-python-cache-action 
         with:
-          python-version: '3.12.4'
-          poetry-version: '1.8.3'
+          enable-all: true
+         
       
       - name: Install dependencies
         run: |
