@@ -24,7 +24,7 @@ jobs:
 
       - name: Verify cache path
         run: |
-          if [ -d "~/.cache/pypoetry" ]; then
+          if [ -d ~/.cache/pypoetry ]; then
             echo "Cache directory exists."
           else
             echo "Cache directory does not exist."
