@@ -5,48 +5,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  demo:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Use python-cache-action
-        uses: Drafteame/setup-ci-langs/@main 
+      - name: Use Python Cache Action
+        uses: Drafteame/python-cache-action/@main 
         with:
-          enable-all: true
+          python-version: '3.12.0'
+          poetry-version: '1.8.3'
          
       
       - name: Install dependencies
         run: |
           poetry install
-
-      - name: Verify cache path
-        run: |
-          if [ -d ~/.cache/pypoetry ]; then
-            echo "Cache directory exists."
-          else
-            echo "Cache directory does not exist."
-          fi
-
-      - name: List cache directory
-        run: ls -la ~/.cache/pypoetry
-
-  build2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-      
-      - name: Use python-cache-action
-        uses: Drafteame/setup-ci-langs/@main 
-        with:
-          enable-all: true
-      
-      - name: Install dependencies
-        run: |
-          poetry install
+          echo "Dependencies installed successfully."
 
       - name: Verify cache path
         run: |
